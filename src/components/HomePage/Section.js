@@ -17,7 +17,6 @@ Section.propTypes = {
 
 const styles = theme => ({
   sectionMain: {
-    padding: 80,
     textAlign: 'center'
   }
 });
