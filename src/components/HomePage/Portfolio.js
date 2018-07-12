@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+
 import { withStyles } from '@material-ui/core/styles';
 import CardHeader from '@material-ui/core/CardHeader';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -16,24 +17,21 @@ class Portfolio extends Component {
   render() {
     const { classes } = this.props;
 
-    console.log(JSON.stringify(cdata.main));
+    //console.log(JSON.stringify(cdata.main));
     return (
-      <Grid container justify="center" className={classes.cardroot}>
+      <Grid container justify="center" className={classes.cardroot} spacing="8">
         {cdata.main.map((num, i) => (
-          <Grid item spacing="8">
-            <Card key={i} className={classes.card}>
-              <CardHeader
-                classes={{ title: classes.cardtitle }}
-                title={num[1]}
-                className={classes.cardbg}
-              />
-              <CardContent className={classes.cardcontentbg}>
-                <Typography className={classes.cardcontent}>
-                  {num[2]}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
+          <Card key={i} className={classes.card} elevation={0} square>
+            <CardHeader
+              classes={{ title: classes.cardtitle }}
+              title={num[1]}
+              className={classes.cardbg}
+            />
+            <CardContent className={classes.cardcontent}>{num[2]}</CardContent>
+            <Link to="#" className={classes.link}>
+              <Button className={classes.button}>Learn More</Button>
+            </Link>
+          </Card>
         ))}
       </Grid>
     );
@@ -47,11 +45,16 @@ Portfolio.propTypes = {
 const styles = theme => ({
   card: {
     maxWidth: 420,
-    margin: 12
+    display: 'flex',
+    flexDirection: 'column',
+    margin: 12,
+    border: '1px solid #f5f5f5'
   },
   cardroot: {
-    //display: 'flex',
-    //flexDirection: 'column'
+    flexWrap: 'nowrap',
+    '@media screen and (max-width: 970px)': {
+      flexWrap: 'wrap'
+    }
   },
   cardtitle: {
     fontWeight: 800,
@@ -60,16 +63,34 @@ const styles = theme => ({
   },
   cardbg: {
     backgroundColor: '#f5f5f5',
-    height: 70
+    height: 70,
+    padding: 48
   },
   cardcontent: {
-    fontSize: 16
-  },
-  cardcontentbg: {
-    paddingTop: 24,
     display: 'flex',
     alignItems: 'center',
+    paddingTop: 24,
+    paddingBottom: 24,
+    lineHeight: '24px',
     flexGrow: 2
+  },
+  button: {
+    borderTop: '1px solid #f5f5f5',
+    padding: '16px !IMPORTANT',
+    textTransform: 'uppercase',
+    letterSpacing: '1.7px',
+    width: '100%',
+    color: '#ff3b00',
+    fontWeight: 700,
+    fontSize: 16
+  },
+  link: {
+    textDecoration: 'none',
+    color: '#ff3b00',
+    fontWeight: 700,
+    '&:hover': {
+      color: '#171717'
+    }
   }
 });
 

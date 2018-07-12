@@ -1,7 +1,11 @@
 body {
   margin: 0;
-  padding: 0;
+  padding: 12px;
   font-family: Roboto;
 }
 
-/* Media here with sidebar @ around 768px width*/
+/* Media here with sidebar @ around 768px width
+
+min-height on splashscreen
+
+*/

@@ -31,9 +31,15 @@ SectionHeader.propTypes = {
 
 const styles = theme => ({
   header: {
-    fontWeight: 500,
-    fontSize: '2.5em',
-    marginBottom: theme.spacing.unit * 2
+    fontWeight: 700,
+    fontSize: '3.3em',
+    marginBottom: theme.spacing.unit * 3,
+    '@media screen and (max-width: 760px)': {
+      fontSize: '1.6em'
+    },
+    '@media screen and (max-width: 1024px) and (min-width: 760px)': {
+      fontSize: '2.25em'
+    }
   },
   subheader: {
     maxWidth: 645,
@@ -42,7 +48,7 @@ const styles = theme => ({
     letterSpacing: 1.8,
     margin: 'auto',
     textTransform: 'uppercase',
-    marginBottom: theme.spacing.unit * 4
+    marginBottom: theme.spacing.unit * 7
   }
 });
 
