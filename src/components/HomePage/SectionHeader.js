@@ -37,6 +37,7 @@ const styles = theme => ({
   },
   subheader: {
     maxWidth: 645,
+    fontWeight: 350,
     textAlign: 'center',
     letterSpacing: 1.8,
     margin: 'auto',
